@@ -1,4 +1,4 @@
-package conf
+package config
 
 import (
 	"flag"
@@ -18,9 +18,10 @@ type Config struct {
 }
 
 type Database struct {
+	Dialect  string `default:"mysql"`
 	Host     string // 主机名
 	Port     int    // 端口
-	Database string // 数据库名
+	Dbname   string
 	Username string // 用户名
 	Password string // 密码
 	Charset  string // 字符集
@@ -61,7 +62,7 @@ const (
 	PRD     = "prod"
 )
 
-func Load(*Config, string) (config *Config) {
+func Load() (*Config, string) {
 	var env *string
 	if value := os.Getenv("APP_ENV"); value != "" {
 		env = &value
@@ -70,10 +71,10 @@ func Load(*Config, string) (config *Config) {
 		flag.Parse()
 	}
 
-	config = &Config{}
-	if err := configor.Load(config, *env+".yml"); err != nil {
+	config := &Config{}
+	if err := configor.Load(config, "conf."+*env+".yml"); err != nil {
 		fmt.Printf("Failed to read %s.yml: %s", *env, err)
 		os.Exit(2)
 	}
-	return config
+	return config, *env
 }

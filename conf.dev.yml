@@ -1,13 +1,13 @@
 database:
-  Host:  127.0.0.1
-  Port:  3306
-  Database: 
-  Username: root
-  Password: 123456MC
-  Charset:
-  Debug:
-  MaxOpen:
-  MaxIdle:
+  host:  127.0.0.1
+  port:  3306
+  dbname: zoogeek
+  username: root
+  password: 123456MC
+  charset:
+  debug:
+  maxopen:
+  maxidle:
 
 extension:
   master_generator: true
