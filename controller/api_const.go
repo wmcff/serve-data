@@ -4,7 +4,8 @@ const (
 	// API represents the group of API.
 	API = "/api"
 	// APIResumes represents the group of resume management API.
-	APIResumes = API + "/resumes"
+	APIResumes   = API + "/resumes"
+	APINewResume = API + "/new/resume"
 )
 
 const (

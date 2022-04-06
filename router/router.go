@@ -59,4 +59,5 @@ func setUserController(e *echo.Echo, container container.Container) {
 func setResumeController(e *echo.Echo, container container.Container) {
 	category := controller.NewResumeController(container)
 	e.GET(controller.APIResumes, func(c echo.Context) error { return category.GetResumeList(c) })
+	e.POST(controller.APINewResume, func(c echo.Context) error { return category.NewResume(c) })
 }
