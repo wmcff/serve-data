@@ -13,6 +13,8 @@ import (
 func Init(e *echo.Echo, container container.Container) {
 	setCORSConfig(e, container)
 	setErrorController(e, container)
+	setForestController(e, container)
+	setUserController(e, container)
 }
 
 func setCORSConfig(e *echo.Echo, container container.Container) {
@@ -52,4 +54,9 @@ func setUserController(e *echo.Echo, container container.Container) {
 		e.POST(controller.APIUserLogin, func(c echo.Context) error { return user.Login(c) })
 		e.POST(controller.APIUserLogout, func(c echo.Context) error { return user.Logout(c) })
 	}
+}
+
+func setForestController(e *echo.Echo, container container.Container) {
+	category := controller.NewForestController(container)
+	e.GET(controller.APIForests, func(c echo.Context) error { return category.GetForestList(c) })
 }

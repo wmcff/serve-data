@@ -1,6 +1,8 @@
 package service
 
 import (
+	"fmt"
+
 	"github.com/wmcff/zoogeek/container"
 	"golang.org/x/crypto/bcrypt"
 
@@ -27,7 +29,7 @@ func (a *userService) AuthenticateByUsernameAndPassword(username string, passwor
 		logger.GetZapLogger().Errorf(err.Error())
 		return false, nil
 	}
-
+	fmt.Println(result)
 	if err := bcrypt.CompareHashAndPassword([]byte(result.Password), []byte(password)); err != nil {
 		logger.GetZapLogger().Errorf(err.Error())
 		return false, nil

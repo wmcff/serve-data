@@ -60,7 +60,7 @@ func (a *User) FindByName(rep repository.Repository, name string) (*User, error)
 	var user *User
 
 	var rec RecordUser
-	rep.Raw(selectAccount+" where a.nick_name = ?", name).Scan(&rec)
+	rep.Raw(selectAccount+" where real_name = ?", name).Scan(&rec)
 	user = convertToUser(&rec)
 
 	return user, nil

@@ -20,7 +20,7 @@ func main() {
 
 	//初始化日志配置
 	logger := logger.InitLogger(env)
-	logger.GetZapLogger().Infof("Loaded this configuration : application." + env + ".yml")
+	logger.GetZapLogger().Infof("Loaded this configuration : conf." + env + ".yml")
 
 	//服务池
 	rep := repository.NewZooRepository(logger, conf)

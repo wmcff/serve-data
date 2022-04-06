@@ -3,8 +3,8 @@ package controller
 const (
 	// API represents the group of API.
 	API = "/api"
-	// APICategories represents the group of category management API.
-	APICategories = API + "/categories"
+	// APIForests represents the group of forest management API.
+	APIForests = API + "/forests"
 )
 
 const (
