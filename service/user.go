@@ -3,10 +3,10 @@ package service
 import (
 	"fmt"
 
-	"github.com/wmcff/zoogeek/container"
+	"github.com/wmcff/serve-data/container"
 	"golang.org/x/crypto/bcrypt"
 
-	"github.com/wmcff/zoogeek/model"
+	"github.com/wmcff/serve-data/model"
 )
 
 type UserService interface {

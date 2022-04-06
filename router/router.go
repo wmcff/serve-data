@@ -3,17 +3,17 @@ package router
 import (
 	"net/http"
 
-	"github.com/wmcff/zoogeek/controller"
+	"github.com/wmcff/serve-data/controller"
 
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
-	"github.com/wmcff/zoogeek/container"
+	"github.com/wmcff/serve-data/container"
 )
 
 func Init(e *echo.Echo, container container.Container) {
 	setCORSConfig(e, container)
 	setErrorController(e, container)
-	setForestController(e, container)
+	setResumeController(e, container)
 	setUserController(e, container)
 }
 
@@ -56,7 +56,7 @@ func setUserController(e *echo.Echo, container container.Container) {
 	}
 }
 
-func setForestController(e *echo.Echo, container container.Container) {
-	category := controller.NewForestController(container)
-	e.GET(controller.APIForests, func(c echo.Context) error { return category.GetForestList(c) })
+func setResumeController(e *echo.Echo, container container.Container) {
+	category := controller.NewResumeController(container)
+	e.GET(controller.APIResumes, func(c echo.Context) error { return category.GetResumeList(c) })
 }

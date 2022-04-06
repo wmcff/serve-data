@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/wmcff/zoogeek/config"
-	"github.com/wmcff/zoogeek/logger"
+	"github.com/wmcff/serve-data/config"
+	"github.com/wmcff/serve-data/logger"
 	"gorm.io/driver/mysql"
 	"gorm.io/driver/postgres"
 	"gorm.io/driver/sqlite"

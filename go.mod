@@ -1,4 +1,4 @@
-module github.com/wmcff/zoogeek
+module github.com/wmcff/serve-data
 
 go 1.17
 

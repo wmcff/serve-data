@@ -4,11 +4,11 @@ import (
 	"net/http"
 
 	"github.com/labstack/echo"
-	"github.com/wmcff/zoogeek/container"
-	"github.com/wmcff/zoogeek/model"
-	"github.com/wmcff/zoogeek/model/dto"
-	"github.com/wmcff/zoogeek/service"
-	"github.com/wmcff/zoogeek/session"
+	"github.com/wmcff/serve-data/container"
+	"github.com/wmcff/serve-data/model"
+	"github.com/wmcff/serve-data/model/dto"
+	"github.com/wmcff/serve-data/service"
+	"github.com/wmcff/serve-data/session"
 )
 
 // UserController is a controller for managing user account.

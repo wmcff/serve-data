@@ -7,7 +7,7 @@ import (
 	"github.com/gorilla/sessions"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo-contrib/session"
-	"github.com/wmcff/zoogeek/model"
+	"github.com/wmcff/serve-data/model"
 )
 
 const (

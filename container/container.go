@@ -1,9 +1,9 @@
 package container
 
 import (
-	"github.com/wmcff/zoogeek/config"
-	"github.com/wmcff/zoogeek/logger"
-	"github.com/wmcff/zoogeek/repository"
+	"github.com/wmcff/serve-data/config"
+	"github.com/wmcff/serve-data/logger"
+	"github.com/wmcff/serve-data/repository"
 )
 
 type Container interface {

@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"time"
 
-	"github.com/wmcff/zoogeek/repository"
+	"github.com/wmcff/serve-data/repository"
 
 	"golang.org/x/crypto/bcrypt"
 )
@@ -25,7 +25,7 @@ type User struct {
 	CreatedAt time.Time `gorm:"column:created_at" json:"created_at"`
 	UpdatedAt time.Time `gorm:"column:updated_at" json:"updated_at"`
 	DeletedAt time.Time `gorm:"column:deleted_at" json:"deleted_at"`
-	ForestId  int64     `gorm:"column:forest_id" json:"forest_id"`
+	ResumeId  int64     `gorm:"column:resume_id" json:"resume_id"`
 	Password  string    `gorm:"column:password" json:"password"`
 }
 
@@ -39,7 +39,7 @@ type RecordUser struct {
 	Age      float64 `gorm:"column:age" json:"age"`             //  年龄
 	Country  string  `gorm:"column:country" json:"country"`     //  国家
 	City     string  `gorm:"column:city" json:"city"`           //  城市
-	ForestId int64   `gorm:"column:forest_id" json:"forest_id"`
+	ResumeId int64   `gorm:"column:resume_id" json:"resume_id"`
 	Password string  `gorm:"column:password" json:"password"`
 }
 
