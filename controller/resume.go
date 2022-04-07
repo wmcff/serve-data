@@ -46,5 +46,8 @@ func (controller *resumeController) NewResume(c echo.Context) error {
 	}
 	fmt.Println(dto.Person)
 	fmt.Println(dto.ToString())
+	fmt.Println(333)
+	fmt.Println(c)
+	service.CreateResume(c)
 	return c.JSON(http.StatusOK, controller.service.FindAllResumes())
 }

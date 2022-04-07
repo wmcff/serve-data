@@ -41,12 +41,12 @@ type repository struct {
 }
 
 // zooRepository is a concrete repository that implements repository.
-type zooRepository struct {
+type objRepository struct {
 	*repository
 }
 
-// NewZooRepository is constructor for zooRepository.
-func NewZooRepository(logger logger.Logger, conf *config.Config) Repository {
+// NewObjRepository is constructor for objRepository.
+func NewObjRepository(logger logger.Logger, conf *config.Config) Repository {
 	logger.GetZapLogger().Infof("Try database connection")
 	db, err := connectDatabase(logger, conf)
 	if err != nil {
@@ -54,7 +54,7 @@ func NewZooRepository(logger logger.Logger, conf *config.Config) Repository {
 		os.Exit(2)
 	}
 	logger.GetZapLogger().Infof("Success database connection, %s:%s", conf.Database.Host, conf.Database.Port)
-	return &zooRepository{&repository{db: db}}
+	return &objRepository{&repository{db: db}}
 }
 
 const (

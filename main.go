@@ -23,7 +23,7 @@ func main() {
 	logger.GetZapLogger().Infof("Loaded this configuration : conf." + env + ".yml")
 
 	//服务池
-	rep := repository.NewZooRepository(logger, conf)
+	rep := repository.NewObjRepository(logger, conf)
 	container := container.NewContainer(rep, conf, logger, env)
 
 	//路由
