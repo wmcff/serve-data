@@ -1,7 +1,6 @@
 package controller
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/labstack/echo"
@@ -40,14 +39,10 @@ func (controller *resumeController) GetResumeList(c echo.Context) error {
 }
 
 func (controller *resumeController) NewResume(c echo.Context) error {
-	dto := dto.NewResumeDto()
-	if err := c.Bind(dto); err != nil {
-		return c.JSON(http.StatusBadRequest, dto)
+	resumeDto := dto.NewResumeDto()
+	if err := c.Bind(resumeDto); err != nil {
+		return c.JSON(http.StatusBadRequest, resumeDto)
 	}
-	fmt.Println(dto.Person)
-	fmt.Println(dto.ToString())
-	fmt.Println(333)
-	fmt.Println(c)
-	service.CreateResume(c)
+	service.CreateResume(resumeDto, c)
 	return c.JSON(http.StatusOK, controller.service.FindAllResumes())
 }

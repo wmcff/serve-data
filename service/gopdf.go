@@ -6,13 +6,14 @@ import (
 
 	"github.com/labstack/echo"
 	"github.com/signintech/gopdf"
+	"github.com/wmcff/serve-data/model/dto"
 )
 
-func CreateResume(c echo.Context) error {
+func CreateResume(resumeDto *dto.ResumeDto, c echo.Context) error {
 	pdf := gopdf.GoPdf{}
 	pdf.Start(gopdf.Config{PageSize: *gopdf.PageSizeA4})
 	pdf.AddPage()
-	err := pdf.AddTTFFont("wts11", "../ttf/wts11.ttf")
+	err := pdf.AddTTFFont("wts11", "ttf/wts11.ttf")
 	if err != nil {
 		log.Print(err.Error())
 	}
@@ -21,7 +22,12 @@ func CreateResume(c echo.Context) error {
 	if err != nil {
 		log.Print(err.Error())
 	}
-	pdf.Cell(nil, "您好")
-	pdf.WritePdf("hello.pdf")
-	return c.JSON(http.StatusOK, pdf.Close().Error())
+	pdf.Cell(nil, "姓名: "+resumeDto.Person.Name+"  ")
+	pdf.Br(20)
+	pdf.Cell(nil, "性别: "+resumeDto.Person.Sex+"  ")
+	pdf.Br(20)
+	pdf.Cell(nil, "年龄: "+resumeDto.Person.Age+"  ")
+	pdf.WritePdf("files/hello.pdf")
+	var res interface{}
+	return c.JSON(http.StatusOK, res)
 }
